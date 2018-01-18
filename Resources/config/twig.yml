@@ -1,0 +1,2 @@
+form_themes:
+    - '@FelixPolygonFieldType/ezadminui/field/edit/ezpolygon.html.twig'

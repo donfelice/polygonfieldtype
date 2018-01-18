@@ -1,0 +1,11 @@
+{# View template for admin ui #}
+{% extends "@EzPlatformAdminUi/fieldtypes/preview/content_fields.html.twig" %}
+
+{% trans_default_domain 'fieldtypes_preview' %}
+
+{% block ezpolygon_field %}
+    {% spaceless %}
+        {{ field.value.polygon|raw }}
+        {{ dump( field.value ) }}
+    {% endspaceless %}
+{% endblock %}

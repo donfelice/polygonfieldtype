@@ -1,0 +1,26 @@
+services:
+    ezpublish.fieldtype.ezpolygon:
+        #class: "%ezpublish.fieldType.ezpolygon.class%"
+        class: Donfelice\PolygonFieldTypeBundle\eZ\Publish\FieldType\Polygon\Type
+        parent: ezpublish.fieldType
+        tags:
+            - { name: ezpublish.fieldType, alias: ezpolygon }
+
+    ezpublish.fieldtype.ezpolygon.converter:
+        class: Donfelice\PolygonFieldTypeBundle\eZ\Publish\FieldType\Polygon\LegacyConverter
+        tags:
+            - {name: ezpublish.storageEngine.legacy.converter, alias: ezpolygon, lazy: true, callback: "::create"}
+
+    ezpublish.fieldtype.ezpolygon.field_type.form:
+        class: Donfelice\PolygonFieldTypeBundle\Form\Type\FieldType\PolygonFieldType
+        # public: false
+        arguments:
+            - "@ezpublish.api.service.field_type"
+        tags:
+            - { name: form.type }
+
+    #ezsystems.fieldtype.ezpolygon.formmapper:
+    Donfelice\PolygonFieldTypeBundle\eZ\Publish\FieldType\Polygon\PolygonFormMapper:
+       tags:
+            - { name: ez.fieldFormMapper.definition, fieldType: ezpolygon }
+            - { name: ez.fieldFormMapper.value, fieldType: ezpolygon }

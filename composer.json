@@ -1,0 +1,30 @@
+{
+    "name" : "Donfelice/PolygonFieldTypeBundle",
+    "description" : "eZ Platform bundle for a polygon field type to be used with mapbox as geojson.",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "Felix Laate",
+        "email" : "felix.laate@gmail.com"
+    }],
+    "keywords" : [
+        "polygon field type bundle"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Donfelice\\PolygonFieldTypeBundle" : ""
+        }
+    },
+    "target-dir" : "Donfelice/PolygonFieldTypeBundle",
+    "repositories" : [{
+    }],
+    "extra" : {
+    "branch-alias" : {
+            "dev-master" : "0.1"
+        }
+    }
+}

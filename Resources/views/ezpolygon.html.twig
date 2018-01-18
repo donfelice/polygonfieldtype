@@ -1,0 +1,61 @@
+{# View template for admin ui #}
+{% extends "@EzPlatformAdminUi/fieldtypes/preview/content_fields.html.twig" %}
+
+{% trans_default_domain 'fieldtypes_preview' %}
+
+{% block ezpolygon_field %}
+    {% spaceless %}
+
+        {#{ field.value.polygon|raw }#}
+        {#{ dump( field.value ) }#}
+
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
+
+    <style>
+        body { margin:0; padding:0; }
+        #map { width:100%; height:500px; }
+    </style>
+
+    <div id='map'></div>
+
+    <script>
+
+        //mapboxgl.accessToken = 'pk.eyJ1IjoiZG9uZmVsaWNlIiwiYSI6IkNyMUlmLWsifQ.OkQhunHnAZJn9HDmhUxjkQ';
+        mapboxgl.accessToken = '{{mapbox_key}}';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/basic-v9',
+            center: [7.13734351262877, 60.137451890638886],
+            zoom: 12
+        });
+
+        var geojson = {{ field.value.polygon|raw }};
+
+        var bbox = turf.extent(geojson);
+
+        map.on('load', function () {
+
+            map.addLayer({
+                'id': 'maine',
+                'type': 'fill',
+                'source': {
+                    'type': 'geojson',
+                    'data': geojson
+                },
+                'layout': {},
+                'paint': {
+                    'fill-color': '#f00',
+                    'fill-opacity': 0.5
+                }
+            });
+        });
+
+        map.fitBounds(bbox, {padding: 50});
+
+    </script>
+
+    {% endspaceless %}
+{% endblock %}

@@ -1,0 +1,41 @@
+{% block ezplatform_fieldtype_ezpolygon_widget %}
+
+    {{ block('form_widget') }}
+
+    <div class="map-container">
+        <div id='map' data-mapbox-key="{{mapbox_key}}" data-mapbox-lat="{{mapbox_lat}}" data-mapbox-long="{{mapbox_long}}"></div>
+
+        <div id='menu'>
+            <input id='basic' type='radio' name='rtoggle' value='basic' checked='checked'>
+            <label for='basic'>basic</label>
+            <input id='streets' type='radio' name='rtoggle' value='streets'>
+            <label for='streets'>streets</label>
+            <input id='satellite' type='radio' name='rtoggle' value='satellite'>
+            <label for='satellite'>satellite</label>
+        </div>
+
+        <div class='calculation-box'>
+            <h3>Draw a polygon using the draw tools.</h3>
+            <div id='calculated-area'></div>
+        </div>
+    </div>
+
+    {% stylesheets filter='cssrewrite'
+        'https://api.tiles.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.css'
+        'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.css'
+        'bundles/felixpolygonfieldtype/css/ezpolygon.css'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% javascripts
+        'https://code.jquery.com/jquery-3.2.1.slim.min.js'
+        'https://api.tiles.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.js'
+        'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.js'
+        'https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js'
+        'bundles/felixpolygonfieldtype/js/ezpolygon.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock %}

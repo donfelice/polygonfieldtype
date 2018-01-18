@@ -1,5 +1,5 @@
 {
-    "name": "Donfelice/PolygonFieldTypeBundle",
+    "name": "donfelice/polygonfieldtypebundle",
     "description": "The Polygon Field Type Bundle is an eZ Platform bundle providing a field type to manage and store geosjon polygons to be used with mapbox.",
     "type": "ezplatform-bundle",
     "keywords": [

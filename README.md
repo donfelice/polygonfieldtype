@@ -4,7 +4,7 @@ The Polygon Field Type Bundle for eZ Platform was made to simplify adding and ma
 
 ## Installation
 
-## Use Composer
+### Use Composer
 
 Run the following from your website root folder to install Polygon Field Type Bundle:
 
@@ -12,7 +12,7 @@ Run the following from your website root folder to install Polygon Field Type Bu
 $ composer require donfelice/PolygonFieldTypeBundle
 ```
 
-##Activate the bundle
+### Activate the bundle
 
 Activate the bundle in app/AppKernel.php file by adding it to the $bundles array in registerBundles method, together with other required bundles:
 
@@ -25,6 +25,8 @@ public function registerBundles()
     return $bundles;
 }
 ```
+
+### Assetic configuration
 
 You need to add it to Assetic configuration in app/config/config.yml, together with EzPlatformAdminUiBundle and all other bundles already configured there:
 

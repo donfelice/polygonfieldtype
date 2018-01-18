@@ -1,8 +1,6 @@
 # template for twig.yml
-debug: "%kernel.debug%"
-strict_variables: "%kernel.debug%"
 form_themes:
-    - '@FelixPolygonFieldType/ezadminui/field/edit/ezpolygon.html.twig'
+    - '@DonfelicePolygonFieldType/ezadminui/field/edit/ezpolygon.html.twig'
 globals:
     mapbox_key: <YOUR_MAPBOX_KEY>
     mapbox_lat: <YOUR_MAPBOX_START_LOCATION_LATITUDE>
